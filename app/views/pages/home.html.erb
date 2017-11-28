@@ -14,3 +14,37 @@
   <p>Meet Your Greeter</p>
   <p>See Shanghai The Local Way</p>
 </div>
+
+
+<!-- CARDS -->
+<!-- Tie Cards -->
+<div class="container cards">
+  <div class="cards-title">
+    <h2>EXPERIENCES</h2>
+    <%= link_to "See All", root_path %>
+  </div>
+  <div class="row">
+    <div class="col col-sm-4 ">
+      <%= link_to root_path, class: "card-link" do %>
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'photography.jpg' %>');">
+      <% end %>
+        <div class="card-experience"> <p>PHOTOGRAPHY</p> </div>
+      </div>
+    </div>
+    <div class="col col-sm-4 ">
+      <%= link_to root_path, class: "card-link" do %>
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'photography.jpg' %>');">
+      <% end %>
+        <div class="card-experience"> <p>PHOTOGRAPHY</p> </div>
+      </div>
+    </div>
+    <div class="col col-sm-4 ">
+      <%= link_to root_path, class: "card-link" do %>
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'photography.jpg' %>');">
+      <% end %>
+        <div class="card-experience"> <p>PHOTOGRAPHY</p> </div>
+      </div>
+    </div>
+  </div>
+</div>
+
