@@ -1,2 +1,16 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<!-- Banner -->
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "shanghai6.jpg" %>');">
+  <div class="banner-content">
+    <h1>Discover Shanghai The Local Way</h1>
+    <p>Book an experience with one of our greeters</p>
+    <%= link_to "Book Now", root_path, class: "btn btn-primary btn-banner" %>
+  </div>
+</div>
+
+<!-- Value Prop -->
+<%= image_tag "value-prop.png", class: "value-prop" %>
+<div class="values">
+  <p>Book An Experience</p>
+  <p>Meet Your Greeter</p>
+  <p>See Shanghai The Local Way</p>
+</div>
