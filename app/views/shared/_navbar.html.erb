@@ -7,6 +7,11 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
+    <!-- About us -->
+    <%= link_to "About Us", root_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "Book An Experience", root_path, class: "navbar-wagon-item navbar-wagon-link bold branded" %>
+    <%= link_to "Become a Greeter", root_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
