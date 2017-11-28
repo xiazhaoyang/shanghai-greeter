@@ -1,0 +1,29 @@
+.banner {
+  color: $white;
+  text-align: center;
+  height: calc(80vh - 70px);
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-attachment: fixed;
+  padding: 0 65px;
+  background-position: 0% 75%;
+  h1{
+    font-family: 'Merienda One', 'cursive';
+    margin-bottom: 30px;
+  }
+  p {
+    font-size: 20px;
+  }
+}
+
+.btn-banner {
+  color: $white;
+  border: solid 2px $white;
+  transition: background-color 0.3s ease;
+  opacity: 0.9;
+  &:hover{
+    background-color: $red;
+  }
+}
