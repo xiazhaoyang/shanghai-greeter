@@ -23,7 +23,9 @@
   border: solid 2px $white;
   transition: background-color 0.3s ease;
   opacity: 0.9;
+  transition: 0.3 ease;
   &:hover{
     background-color: $red;
+    opacity: 1;
   }
 }
