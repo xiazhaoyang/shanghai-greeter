@@ -3,7 +3,7 @@
     <% @experiences.each do |experience| %>
     <div class="col col-xs-12 col-sm-4">
       <%= link_to experience_path(experience), class: "card-link" do %>
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('culture.jpg') %>');">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= experience.photos? ? (cl_image_path experience.photos.first.path) : (image_path 'museum.jpg') %>');">
       <% end %>
         <div class="card-category"><%= experience.name %></div>
       </div>
