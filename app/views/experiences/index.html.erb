@@ -9,6 +9,9 @@
       </div>
       <div class="card-info">
         <p><%= experience.description %></p>
+        <% if policy(experience).update? %>
+        <p><%= link_to 'Edit', edit_experience_path(experience) %></p>
+        <% end %>
       </div>
     </div>
     <% end %>
