@@ -108,59 +108,59 @@ puts "Finished!"
 
 
 
-# def generate_images(experience)
-#   # NOTE: This is example is written for the model "Item" with images
-#   # saved as "image" via attachinary. If you are calling it something
-#   # different (ex. "avatar"), then you will need to change the code.
-#   # Likewise, if your model is different name, you will need to change
-#   # the model calls in the method. Place this method in "Seeds" file.
+def generate_images(experience)
+  # NOTE: This is example is written for the model "Item" with images
+  # saved as "image" via attachinary. If you are calling it something
+  # different (ex. "avatar"), then you will need to change the code.
+  # Likewise, if your model is different name, you will need to change
+  # the model calls in the method. Place this method in "Seeds" file.
 
-#   # The method is passed two paramters: 'category' (a string), &
-#   # 'item' (the object that you will have the image seeded for)
+  # The method is passed two paramters: 'category' (a string), &
+  # 'item' (the object that you will have the image seeded for)
 
-#   # -------------------------------------------------------
-#   # ----------------------START METHOD---------------------
-#   # -------------------------------------------------------
+  # -------------------------------------------------------
+  # ----------------------START METHOD---------------------
+  # -------------------------------------------------------
 
-#   db_dir = File.dirname(__FILE__)
-#   # Gets folder of /db/ in Rails.
+  db_dir = File.dirname(__FILE__)
+  # Gets folder of /db/ in Rails.
 
-#   image_ranges = [
-#     "image-1",
-#     "image-2",
-#     "image-3",
-#     "image-4",
-#     "image-5",
-#     "image-6"
+  image_ranges = [
+    "image-1",
+    "image-2",
+    "image-3",
+    "image-4",
+    "image-5",
+    "image-6"
 
-#   ]
-#   # "category_1", ... IMPORTANT: The categories must be strings. No Symbols.
-#   # For the ranges for each catgory (i.e. "(1..5).to_a"), change the number "5"
-#   # to the number of images for that category that you have.
+  ]
+  # "category_1", ... IMPORTANT: The categories must be strings. No Symbols.
+  # For the ranges for each catgory (i.e. "(1..5).to_a"), change the number "5"
+  # to the number of images for that category that you have.
 
-#   # Item Range Example: "windsurfing" => (1..3).to_a
-#   # ((This is for files named: "windsurfing-1.jpg", "windsurfing-2.jpg", etc.))
+  # Item Range Example: "windsurfing" => (1..3).to_a
+  # ((This is for files named: "windsurfing-1.jpg", "windsurfing-2.jpg", etc.))
 
-#   # Item Range Example (for User): "female" => (1..7).to_a
-#   # ((This is an example for using categories for gendered-photos for user avatar))
-#   random_number_for_experience = image_ranges.sample
-#   # This chooses the random number within a range of images (ex: 1, 2, 7, 17, 3)
+  # Item Range Example (for User): "female" => (1..7).to_a
+  # ((This is an example for using categories for gendered-photos for user avatar))
+  random_number_for_experience = image_ranges.sample
+  # This chooses the random number within a range of images (ex: 1, 2, 7, 17, 3)
 
-#   path = db_dir + "/images/#{random_number_for_experience}.jpg"
-#   # This sets the path to "windsurfing-1.jpg" in /db/images/ directory.
+  path = db_dir + "/images/#{random_number_for_experience}.jpg"
+  # This sets the path to "windsurfing-1.jpg" in /db/images/ directory.
 
-#   experience.photo = File.open(path)
-#   # This uploads the item via attachinary.
-#   # NOTE: the .image should change based on your migration.
+  experience.photos = File.open(path)
+  # This uploads the item via attachinary.
+  # NOTE: the .image should change based on your migration.
 
-#   # ex: if using  "avatar" for User model, then change to "item.avatar"
+  # ex: if using  "avatar" for User model, then change to "item.avatar"
 
-#   experience.save
-#   # Saves item after image upload.
-# end
+  experience.save
+  # Saves item after image upload.
+end
 
 
-# Experience.all.each do |experience|
-#   generate_images(experience)
+Experience.all.each do |experience|
+  generate_images(experience)
 
-# end
+end
