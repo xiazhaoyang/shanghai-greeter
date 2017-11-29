@@ -2,4 +2,14 @@
   <% new_experience_path %>
 <% end %>
 
-
+<div class="row forms">
+  <div class="col-xs-4 col-xs-offset-4">
+    <h1>add a new experience!</h1>
+      <%= simple_form_for @experience do |e| %>
+        <%= e.input :name %>
+        <%= e.input :description %>
+        <%= e.input :photos, as: :attachinary %>
+        <%= e.button :submit %>
+      <% end %>
+  </div>
+</div>

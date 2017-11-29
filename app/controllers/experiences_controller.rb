@@ -1,4 +1,5 @@
 class ExperiencesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     @experiences = policy_scope(Experience).order(created_at: :desc)
   end
@@ -39,7 +40,7 @@ class ExperiencesController < ApplicationController
   private
 
   def experiences_params
-    params.require(:experience).permit(:name, :description, :photo)
+    params.require(:experience).permit(:name, :description, photos: [])
 
   end
 
