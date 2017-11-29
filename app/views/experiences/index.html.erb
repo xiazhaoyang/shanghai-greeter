@@ -9,14 +9,14 @@
       </div>
       <div class="card-info">
         <p><%= experience.description %></p>
+      </div>
+    </div>
         <% if policy(experience).update? %>
         <p><%= link_to 'Edit', edit_experience_path(experience) %></p>
         <% end %>
         <% if policy(experience).destroy? %>
         <p><%= link_to 'Destroy', experience_path(experience), method: :delete, data: { confirm: 'Are you sure?' } %></p>
        <% end %>
-      </div>
-    </div>
     <% end %>
   </div>
 </div>
