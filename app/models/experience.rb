@@ -6,5 +6,6 @@ class Experience < ApplicationRecord
   validates :description, presence: true
   validates :expectation_one, presence: true
 
+
   has_attachments :photos, maximum: 6
 end
