@@ -17,13 +17,14 @@ class ExperiencesController < ApplicationController
     @experience = Experience.new(experiences_params)
     authorize @experience
     if @experience.save
-      redirect_to @experience
+      redirect_to @experience, notice: "Experience added to system!"
     else
       render :new
     end
   end
 
   def edit
+    @experience = Experience.find(params[:id])
     authorize @experience
   end
 
