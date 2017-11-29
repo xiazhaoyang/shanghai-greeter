@@ -14,7 +14,7 @@ class ExperiencePolicy < ApplicationPolicy
   end
 
   def update?
-    user.admin? or not record.update?
+    user.admin?
   end
 
   def destroy?

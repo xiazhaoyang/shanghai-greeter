@@ -24,18 +24,21 @@ class ExperiencesController < ApplicationController
   end
 
   def edit
+    authorize @experience
   end
 
   def update
+    authorize @experience
   end
 
   def destroy
+    authorize @experience
   end
 
   private
 
   def experiences_params
-    params.require(:experience).permit(:name, :description)
+    params.require(:experience).permit(:name, :description, :photo)
 
   end
 
