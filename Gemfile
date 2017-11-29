@@ -16,6 +16,12 @@ gem 'jquery-rails'
 gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
+gem 'acts-as-taggable-on'
+gem 'pundit'
+gem 'cloudinary'
+gem 'attachinary'
+gem 'jquery-fileupload-rails'
+gem 'coffee-rails'
 
 group :development, :test do
   gem 'pry-byebug'
