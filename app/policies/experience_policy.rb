@@ -9,10 +9,6 @@ class ExperiencePolicy < ApplicationPolicy
     user.admin?
   end
 
-  def edit?
-    update?
-  end
-
   def update?
     user.admin?
   end

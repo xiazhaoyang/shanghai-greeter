@@ -30,17 +30,25 @@ class ExperiencesController < ApplicationController
   end
 
   def update
+    @experience = Experience.find(params[:id])
+    @experience.update(experiences_params)
     authorize @experience
+    redirect_to @experience, notice: "Your experience was updated!"
+
   end
 
   def destroy
+    @experience = Experience.find(params[:id])
+    @experience.destroy
     authorize @experience
+    redirect_to experiences_path, notice: "Your experience was deleted!"
   end
+
 
   private
 
   def experiences_params
-    params.require(:experience).permit(:name, :description, photos: [])
+    params.require(:experience).permit(:name, :description, :expectation_one, :expectation_two, :expectation_three, :notice, photos: [])
 
   end
 
