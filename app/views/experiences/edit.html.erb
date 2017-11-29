@@ -1,0 +1,15 @@
+<div class="row forms">
+  <div class="col-xs-4 col-xs-offset-4">
+    <h1>edit <%= @experience.name %>! experience</h1>
+      <%= simple_form_for @experience do |e| %>
+        <%= e.input :name %>
+        <%= e.input :description %>
+        <%= e.input :expectation_one %>
+        <%= e.input :expectation_two %>
+        <%= e.input :expectation_three %>
+        <%= e.input :notice %>
+        <%= e.input :photos, as: :attachinary %>
+        <%= e.button :submit %>
+      <% end %>
+  </div>
+</div>
