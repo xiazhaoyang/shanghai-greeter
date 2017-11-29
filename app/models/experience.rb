@@ -9,3 +9,7 @@ class Experience < ApplicationRecord
 
   has_attachments :photos, maximum: 6
 end
+
+
+
+
