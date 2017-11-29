@@ -1,12 +1,11 @@
 .value-prop {
-  width: 60%;
-  display: flex;
-  margin: 40px auto;
+  img {
+    margin: 40px auto;
+    max-height: 250px;
+  }
 }
 
 .values {
-  display: flex;
-  justify-content: center;
-  align-item: center;
+  text-align: center;
   font-weight: bold;
 }
