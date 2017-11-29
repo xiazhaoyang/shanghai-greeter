@@ -2,8 +2,8 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path "shanghai6.jpg" %>');">
   <div class="banner-content">
     <h1>Discover Shanghai The Local Way</h1>
-    <p>Book an experience with one of our greeters</p>
-    <%= link_to "Book Now", experiences_path, class: "btn btn-primary btn-banner" %>
+    <p>Book a FREE experience with one of our greeters</p>
+    <%= link_to "Book Now", root_path, class: "btn btn-primary btn-banner" %>
   </div>
 </div>
 
@@ -22,12 +22,11 @@
   </div>
 </div>
 
-
 <!-- CARDS -->
 <!-- Tie Cards -->
 <div class="container cards">
   <div class="cards-title">
-    <h2>EXPERIENCES</h2>
+    <h2>POPULAR EXPERIENCES</h2>
     <%= link_to "See All", root_path %>
   </div>
   <div class="row">
@@ -35,21 +34,21 @@
       <%= link_to root_path, class: "card-link" do %>
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'photography.jpg' %>');">
       <% end %>
-        <div class="card-experience"> <p>PHOTOGRAPHY</p> </div>
+        <div><p class="card-experience">PHOTOGRAPHY</p></div>
       </div>
     </div>
     <div class="col col-sm-4 ">
       <%= link_to root_path, class: "card-link" do %>
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'photography.jpg' %>');">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'bund.jpg' %>');">
       <% end %>
-        <div class="card-experience"> <p>PHOTOGRAPHY</p> </div>
+        <div><p class="card-experience">the bund</p></div>
       </div>
     </div>
     <div class="col col-sm-4 ">
       <%= link_to root_path, class: "card-link" do %>
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'photography.jpg' %>');">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'local-food.jpg' %>');">
       <% end %>
-        <div class="card-experience"> <p>PHOTOGRAPHY</p> </div>
+        <div><p class="card-experience">local food</p></div>
       </div>
     </div>
   </div>
