@@ -1,3 +1,7 @@
+<div class="experience-title">
+  <h1>How Do You Want To See Shanghai?</h1>
+</div>
+
 <div class="container cards">
   <div class="row">
     <% @experiences.each do |experience| %>
@@ -5,18 +9,15 @@
       <%= link_to experience_path(experience), class: "card-link" do %>
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= experience.photos? ? (cl_image_path experience.photos.first.path) : (image_path 'museum.jpg') %>');">
       <% end %>
-        <div class="card-category"><%= experience.name %></div>
+        <div class="card-experience"><%= experience.name %></div>
       </div>
-      <div class="card-info">
-        <p><%= experience.description %></p>
-      </div>
+      <% if policy(experience).update? %>
+      <p><%= link_to 'Edit', edit_experience_path(experience) %></p>
+      <% end %>
+      <% if policy(experience).destroy? %>
+      <p><%= link_to 'Destroy', experience_path(experience), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+      <% end %>
     </div>
-        <% if policy(experience).update? %>
-        <p><%= link_to 'Edit', edit_experience_path(experience) %></p>
-        <% end %>
-        <% if policy(experience).destroy? %>
-        <p><%= link_to 'Destroy', experience_path(experience), method: :delete, data: { confirm: 'Are you sure?' } %></p>
-       <% end %>
     <% end %>
   </div>
 </div>
