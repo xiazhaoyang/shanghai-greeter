@@ -18,6 +18,6 @@ class ExperiencePolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.users == user
+    user.admin?
   end
 end
