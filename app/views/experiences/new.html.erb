@@ -1,9 +1,9 @@
 <div class="row forms">
   <div class="col-xs-4 col-xs-offset-4">
-    <h1>add a new experience!</h1>
+    <h1>Add A New Experience</h1>
       <%= simple_form_for @experience do |e| %>
-        <%= e.input :name %>
-        <%= e.input :description %>
+        <%= e.input :name, label: 'Experience Name', error: 'Please specify an experience name' %>
+        <%= e.input :description, as: :text, class: "text-field" %>
         <%= e.input :expectation_one %>
         <%= e.input :expectation_two %>
         <%= e.input :expectation_three %>
