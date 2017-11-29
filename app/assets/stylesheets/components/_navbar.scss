@@ -20,6 +20,10 @@
   height: 35px;
   width: 35px;
   border-radius: 50%;
+  border: solid 2px $grey-opac;
+  img {
+    padding: 3px;
+  }
 }
 
 /* Right section */
@@ -61,7 +65,7 @@
 }
 .navbar-wagon-dropdown-menu li > a:hover {
   background: transparent !important;
-  color: black !important;
+  color: $red !important;
 }
 .navbar-wagon-dropdown-menu:before {
   content: ' ';
@@ -86,3 +90,4 @@
     color: $grey;
   }
 }
+
