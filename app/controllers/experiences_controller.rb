@@ -41,6 +41,9 @@ class ExperiencesController < ApplicationController
     redirect_to experiences_path, notice: "Your experience was deleted!"
   end
 
+  def dashboard
+  end
+
 
   private
 
