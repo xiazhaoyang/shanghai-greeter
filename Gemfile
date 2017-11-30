@@ -22,6 +22,8 @@ gem 'cloudinary'
 gem 'attachinary'
 gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
+gem 'remotipart', github: 'mshibuya/remotipart'
+gem 'rails_admin'
 
 group :development, :test do
   gem 'pry-byebug'
