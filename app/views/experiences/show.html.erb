@@ -1,7 +1,5 @@
-<% if @experience.photos? %>
-<% @experience.photos.each do |photo| %>
-<%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
-<% end %>
-<% else %>
-<%= image_tag 'museum.jpg' %>
-<% end %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= @experience.photos? ? (cl_image_path @experience.photos.first.path) : (image_path 'museum.jpg') %>');">
+  <div class="banner-content">
+    <h1><%= @experience.name %></h1>
+  </div>
+</div>
