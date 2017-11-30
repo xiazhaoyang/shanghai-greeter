@@ -36,25 +36,25 @@
 <div class="container cards">
   <div class="cards-title">
     <h2>POPULAR EXPERIENCES</h2>
-    <%= link_to "See All", root_path %>
+    <%= link_to "See All", experiences_path %>
   </div>
   <div class="row">
     <div class="col col-sm-4 ">
-      <%= link_to root_path, class: "card-link" do %>
+      <%= link_to experience_path(experience), class: "card-link" do %>
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'photography.jpg' %>');">
       <% end %>
         <div><p class="card-experience">PHOTOGRAPHY</p></div>
       </div>
     </div>
     <div class="col col-sm-4 ">
-      <%= link_to root_path, class: "card-link" do %>
+      <%= link_to experience_path(experience), class: "card-link" do %>
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'bund.jpg' %>');">
       <% end %>
         <div><p class="card-experience">the bund</p></div>
       </div>
     </div>
     <div class="col col-sm-4 ">
-      <%= link_to root_path, class: "card-link" do %>
+      <%= link_to experience_path(experience), class: "card-link" do %>
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'local-food.jpg' %>');">
       <% end %>
         <div><p class="card-experience">local food</p></div>
