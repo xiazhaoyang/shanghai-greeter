@@ -107,7 +107,6 @@ Experience.create!(Experience_attributes)
 puts "Finished!"
 
 
-
 def generate_images(experience)
   # NOTE: This is example is written for the model "Item" with images
   # saved as "image" via attachinary. If you are calling it something
