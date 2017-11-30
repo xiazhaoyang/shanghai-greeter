@@ -1,1 +1,83 @@
-<h1>HI AUDREY</h1>
+<div class="twothirds vertical-tabs">
+<div class="checklist-wrap">
+  <div class="contextNav onethird">
+    <ul class="checklist-select" role="tablist">
+     <li id="tab1" class="active" role="tab" aria-controls="panel1" aria-selected="true">Quick Facts</li>
+     <li id="tab2" role="tab" aria-controls="panel2" aria-selected="false">Brand Assets</li>
+     <li id="tab3" role="tab" aria-controls="panel3" aria-selected="false">B-Roll/Imagery</li>
+      <li id="tab4" role="tab" aria-controls="panel4" aria-selected="false">Executive Team</li>
+    </ul>
+  </div> <!-- end contextNav -->
+
+<!-- First Panel -->
+<div class="twothirds last box tab1-box selected" id="panel1" role="tabpanel" aria-labelledby="tab1">
+<article class="deptBox">
+<h2>Quick Facts</h2>
+<div><br> <!-- to wrap the accordion panels -->
+
+  <p>Oreo cookies are the best!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</p>
+
+</div>
+</article>
+</div> <!-- end tab1 Box  -->
+
+<!-- Second Panel  -->
+<div class="twothirds last box tab2-box" id="panel2" role="tabpanel" aria-labelledby="tab2">
+<article class="deptBox">
+<h2>Brand Assets</h2>
+<div><br> <!-- to wrap the accordion panels -->
+
+  <p>Chocolate Chip cookies are the best!</p>
+
+</div>
+</article>
+</div> <!-- end tab2 Box  -->
+
+<!-- Third Panel  -->
+<div class="twothirds last box tab3-box" id="panel3" role="tabpanel" aria-labelledby="tab3">
+<article class="deptBox">
+<h2>B-Roll/Imagery</h2>
+<div><br> <!-- to wrap the accordion panels -->
+
+  <p>Oatmeal cookies are the best!</p>
+
+</div>
+</article>
+</div> <!-- end tab3 Box -->
+  <div class="twothirds last box tab4-box" id="panel4" role="tabpanel" aria-labelledby="tab4">
+<article class="deptBox">
+<h2>Executive Team</h2>
+<div><br> <!-- to wrap the accordion panels -->
+
+  <p>Oatmeal cookies are the best!</p>
+
+</div>
+</article>
+</div> <!-- end tab4 Box -->
+</div>  <!-- end checklist-wrap -->
+  </div>
+
+
+  $(document).ready(function() {
+      vert_tabs();
+      });
+
+      $(window).resize(function(){
+          if($('.vertical-tabs').innerWidth() > 608) {
+              if($('div.selected').length){
+              }else{
+                  $('div.box:first').addClass('selected');
+              }
+          }
+      });
+
+  function vert_tabs(){
+      $('ul.checklist-select li').click(function() {
+          var selectID = $(this).attr('id');
+          $('ul.checklist-select li').removeClass('active');
+          $(this).addClass('active');
+          $('div.box').removeClass('selected');
+          $('.' + selectID + '-box').addClass('selected');
+      });
+  }
+
