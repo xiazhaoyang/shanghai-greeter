@@ -34,7 +34,7 @@
     <h3>BOOK YOUR EXPERIENCE!</h3>
     <p class="calendar"></p>
     <%= simple_form_for [@experience, @booking] do |i| %>
-          <%= i.input :date, as: :string %>
+          <%= i.input :date %>
           <%= i.button :submit, class: "btn btn-primary" %>
     <% end %>
 
