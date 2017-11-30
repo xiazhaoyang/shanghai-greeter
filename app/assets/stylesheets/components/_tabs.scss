@@ -1,60 +1,113 @@
-.box {
-    overflow: hidden;
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.contextNav { display:none; }
-
-.selected {
-    display: block;
-    opacity: 1;
-    transition: opacity 1s linear;
-    -webkit-transition: opacity 1s linear; }
-
-.checklist_wrap .box{
-    display: block;
-    opacity: 1;
-    transition: opacity 1s linear;
-    -webkit-transition: opacity 1s linear; }
-
-  .checklist-wrap{
-    padding-top: 2em;}
-
-  .contextNav.onethird {
-    background-color: transparent; }
-
-  .checklist-select li {
-    text-align: right;
-    color: #fff;
-    background: #00a5b5;
-    padding: 0.75em;
-    margin-bottom:0.25em;
+html, body {
+  height: 100vh;
 }
 
-  .checklist-select li.active {
-    background-color: #00839B;
+main {
+  min-width: 320px;
+  max-width: 80%;
+  padding: 50px;
+  margin: 50px auto;
+  background: $white;
+  min-height: calc(100vh - 370px);
+}
+
+section {
+  display: none;
+  padding: 20px 0 0;
+  border-top: 1px solid #ddd;
+  p {
+    margin: 0 0 20px;
+    line-height: 1.5;
   }
-
-  .checklist-select li:hover {
-    cursor: pointer;
-    background-color: #00839B; }
-
-@media only screen and (min-width:609px) {
-
-  .contextNav{ display:block; }
-  .checklist-wrap .box{
-    display: none;
-    opacity: 0;
-    /*transition: opacity 1s linear;
-    -webkit-transition: opacity 1s linear;*/ }
-
-  .checklist-wrap .selected{
-    display: block;
-    opacity: 1;
-    /*transition: opacity 1s linear;
-    -webkit-transition: opacity 1s linear;*/ }
-
-  .checklist-wrap .box .deptBox > div{ display:none; }
-
-  .checklist-wrap .selected .deptBox > div{ display:block;}
-
 }
+
+.tabs input {
+  display: none;
+}
+
+.tabs label {
+  display: block;
+  margin: 0 0 -1px;
+  padding: 15px 25px;
+  font-weight: 600;
+  text-align: left;
+  width: 200px;
+}
+
+.tabs label:before {
+  font-family: fontawesome;
+  font-weight: normal;
+  margin-right: 10px;
+}
+
+.tabs label[for*='1']:before { content: '\f155'; }
+.tabs label[for*='2']:before { content: '\f27e'; }
+.tabs label[for*='3']:before { content: '\f013'; }
+
+.tabs label:hover {
+  color: #888;
+  cursor: pointer;
+}
+
+input:checked + label {
+  color: $grey;
+  border: 1px solid #ddd;
+  border-top: 3px solid $red;
+  border-bottom: 1px solid $white;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2,
+#tab3:checked ~ #content3,
+#tab4:checked ~ #content4 {
+  display: block;
+}
+
+@media screen and (max-width: 650px) {
+  .tabs label {
+    font-size: 0;
+  }
+  .tabs label:before {
+    margin: 0;
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .tabs label {
+    padding: 15px;
+  }
+}
+
+.dashboard-button{
+  position: relative;
+  a {
+    position: absolute;
+    right: 0;
+  }
+}
+
+.content2 {
+  min-height: 100vh;
+}
+
+.settings {
+  width: 60%;
+  h2 {
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .form-actions {
+    display: flex;
+    justify-content: center;
+  }
+}
+
