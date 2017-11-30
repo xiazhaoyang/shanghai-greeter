@@ -8,7 +8,9 @@ Rails.application.routes.draw do
 
   resources :bookings, only: [ :edit, :update, :destroy, :new_review ]
 
-  get "dashboard", to: "experiences#dashboard", as: :dashboard
+  get "dashboard/visitor", to: "experiences#dashboard", as: :dashboard_visitor
+  get "dashboard/greeter", to: "experiences#dashboard", as: :dashboard_greeter
+  get "dashboard/settings", to: "experiences#dashboard", as: :dashboard_settings
   mount Attachinary::Engine => "/attachinary"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
