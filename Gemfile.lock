@@ -283,7 +283,7 @@ DEPENDENCIES
   puma
   pundit
   rails (= 5.1.4)
-  rails_admin
+  rails_admin (>= 1.0.0.rc)
   redis
   remotipart!
   sass-rails

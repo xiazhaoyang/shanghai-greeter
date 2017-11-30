@@ -41,4 +41,34 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
+
+  config.model 'Booking' do
+    edit do
+      field :greeter, :enum do
+        enum do
+
+          User.all.collect {|p| ["#{p.name.to_s} (#{p.sign_in_count})", p]}
+
+        end
+
+      end
+      field :visitor
+      field :date
+    end
+
+    list do
+      field :greeter do
+
+        formatted_value do # used in form views
+          "#{value.to_s.upcase} (#{bindings[:object].greeter.sign_in_count})"
+        end
+
+        pretty_value do # used in list view columns and show views, defaults to formatted_value for non-association fields
+          "#{value.name.upcase} (#{bindings[:object].greeter.sign_in_count})"
+        end
+      end
+      field :visitor
+      field :date
+    end
+  end
 end
