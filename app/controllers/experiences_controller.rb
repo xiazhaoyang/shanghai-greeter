@@ -1,22 +1,19 @@
 class ExperiencesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-    @experiences = policy_scope(Experience).order(created_at: :desc)
+    @experiences = Experience.all
   end
 
   def show
     @experience = Experience.find(params[:id])
-    authorize @experience
   end
 
   def new
     @experience = Experience.new
-    authorize @experience
   end
 
   def create
     @experience = Experience.new(experiences_params)
-    authorize @experience
     if @experience.save
       redirect_to @experience, notice: "Experience added to system!"
     else
@@ -26,12 +23,10 @@ class ExperiencesController < ApplicationController
 
   def edit
     @experience = Experience.find(params[:id])
-    authorize @experience
   end
 
   def update
     @experience = Experience.find(params[:id])
-    authorize @experience
 
 
     @experience.update(experiences_params)
@@ -41,7 +36,6 @@ class ExperiencesController < ApplicationController
 
   def destroy
     @experience = Experience.find(params[:id])
-    authorize @experience
 
     @experience.destroy
     redirect_to experiences_path, notice: "Your experience was deleted!"
