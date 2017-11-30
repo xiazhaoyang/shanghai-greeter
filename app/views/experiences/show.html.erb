@@ -32,11 +32,14 @@
   </div>
   <div class="booking">
     <h3>BOOK YOUR EXPERIENCE!</h3>
-    <p>calendar</p>
-    <p>calendar</p>
-    <p>calendar</p>
-    <p>calendar</p>
-    <p>calendar</p>
+    <p class="calendar"></p>
+
   </div>
 </div>
 
+<% content_for :js do %>
+  <script>
+    $(".calendar").pickadate()
+  </script>
+<% end %>
+>>>>>>> master
