@@ -3,3 +3,29 @@
     <h1><%= @experience.name %></h1>
   </div>
 </div>
+
+<div class="experience-details">
+  <h3>About This Experience</h3>
+  <div class="experience-description">
+    <%= @experience.description %>
+  </div>
+  <h3>What You Can Expect:</h3>
+  <div class="experience-expectations">
+    <p><i class="fa fa-check" aria-hidden="true"></i> <%= @experience.expectation_one %></p>
+  </div>
+  <div class="experience-expectations">
+    <% if @experience.expectation_two? %>
+      <p><i class="fa fa-check" aria-hidden="true"></i> <%= @experience.expectation_two %></p>
+    <% end %>
+  </div>
+  <div class="experience-expectations">
+    <% if @experience.expectation_three? %>
+      <p><i class="fa fa-check" aria-hidden="true"></i> <%= @experience.expectation_three %></p>
+    <% end %>
+  </div>
+  <div class="experience-notice">
+    <% if @experience.notice? %>
+      <p><i class="fa fa-asterisk" aria-hidden="true"></i> <%= @experience.notice %></p>
+    <% end %>
+  </div>
+</div>
