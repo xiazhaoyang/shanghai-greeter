@@ -32,9 +32,8 @@
   </div>
   <div class="booking">
     <h3>BOOK YOUR EXPERIENCE!</h3>
-    <p class="calendar"></p>
     <%= simple_form_for [@experience, @booking] do |i| %>
-          <%= i.input :date %>
+          <%= i.input :date, as:'string', input_html: { class: 'calendar' }%>
           <%= i.button :submit, class: "btn btn-primary" %>
     <% end %>
 
@@ -43,12 +42,11 @@
 
 <% content_for :js do %>
   <script>
-$(".calendar").pickadate({
-  // An integer (positive/negative) sets it relative to today.
-  min: 5,
-  // `true` sets it to today. `false` removes any limits.
-  max: false
-})
+    $(".calendar").pickadate({
+      // An integer (positive/negative) sets it relative to today.
+      min: 5,
+      // `true` sets it to today. `false` removes any limits.
+      max: false
+    })
   </script>
 <% end %>
->>>>>>> master
