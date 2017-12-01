@@ -20,6 +20,13 @@
     font-size: 21px;
     font-weight: bold;
     color: $red;
+    margin-bottom: 30px;
+  }
+  input:first-child {
+    display: none;
+  }
+  label {
+    display: none;
   }
 }
 
