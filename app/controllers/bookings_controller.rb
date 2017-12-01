@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
     @booking.visitor = current_user
     if @booking.date >= (Date.today + 5)
       if @booking.save
-        redirect_to dashboard_visitor_path, notice: "Booking confirmed!"
+        redirect_to dashboard_path, notice: "Booking confirmed!"
       end
     else
       redirect_to experience_path(@experience), alert: "I am sorry, these dates are unavailable or are not valid."
@@ -32,7 +32,7 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
-    redirect_to dashboard_visitor_path, notice: "Booking has been cancelled!"
+    redirect_to dashboard_path, notice: "Booking has been cancelled!"
   end
 
   private

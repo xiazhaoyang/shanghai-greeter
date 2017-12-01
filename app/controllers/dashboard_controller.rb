@@ -1,5 +1,7 @@
 class DashboardController < ApplicationController
   def index
+    @visitor = current_user
+    @my_bookings = @visitor.visiting_bookings
   end
 
   def greeter
