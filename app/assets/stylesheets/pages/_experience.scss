@@ -22,10 +22,10 @@
     color: $red;
     margin-bottom: 30px;
   }
-  input:first-child {
-    display: none;
+  label.control-label.string.required {
+      display: none;
   }
-  label {
+  input#booking_date {
     display: none;
   }
 }
@@ -33,4 +33,17 @@
 .experience {
   display: flex;
   justify-content: space-around;
+}
+
+.picker__box:focus {
+  outline: none !important;
+}
+.picker__wrap:focus {
+  outline: none !important;
+}
+.picker__frame:focus {
+  outline: none !important;
+}
+.picker__holder:focus {
+  outline: none !important;
 }
