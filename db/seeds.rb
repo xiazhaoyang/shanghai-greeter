@@ -1,15 +1,15 @@
 puts 'Cleaning database...'
 Experience.delete_all
+Booking.delete_all
 
-puts 'Creating restaurants...'
-Experience_attributes = [
+puts 'Creating experiences...'
+experience_attributes = [
     {
     name:         "The Bund",
     description:  "The Bund is a famous waterfront area in central Shanghai that runs along the Huangpu River. The area along the river faces the modern skyscrapers of Lujiazui in the Pudong District. The Bund usually refers to the buildings and wharves on this section of the road, as well as some adjacent areas. The best way to appreciate the buildings and its surroundings is to have a walk along the Bund. Roaming among the architectural complexes, you'll have a better understanding of the century-long charm of this city.",
     expectation_one: "Great views of the city",
     expectation_two: "Many people and a nice source of people watching",
     expectation_three: "Beautiful photos of Shanghai’s iconic skyline",
-    notice: "Discovery of historical European Architecture",
   },
   {
     name:         "Culture",
@@ -17,7 +17,7 @@ Experience_attributes = [
     expectation_one: "Great views of the city",
     expectation_two: "Many people and a nice source of people watching",
     expectation_three: "Beautiful photos of Shanghai’s iconic skyline",
-    notice: "Discovery of historical European Architecture",
+
   },
   {
     name:         "Local Food",
@@ -25,14 +25,14 @@ Experience_attributes = [
     expectation_one: "Great views of the city",
     expectation_two: "Many people and a nice source of people watching",
     expectation_three: "Beautiful photos of Shanghai’s iconic skyline",
-    notice: "Discovery of historical European Architecture",
+    notice: "Notice: Please note that food costs are not covered (avg. 100-200rmb, can be discussed prior with greeter)",
   },
   {
     name:         "Museum",
     description:  "Shanghai is more than world-class restaurants and shopping. From the educational to the visually captivating, Shanghai’s museums will keep you coming back for more.Let us know what interests you and our greeter will make sure to bring you to a museum that you will love.",
     expectation_one: "A rich cultural experience",
     expectation_two: "Eye-opening art and creations",
-    notice: "Discovery of historical European Architecture",
+
   },
   {
     name:         "Nightlife",
@@ -42,16 +42,15 @@ Experience_attributes = [
   },
   {
     name:         "Photography",
-    description:  "With its unique mix of architectural styles and an ever-changing cityscape, we’re confident that Shanghai is one of the most photogenic cities out there. Join a greeter who also loves photography and explore a local Shanghai neighborhood. Things change so fast around here, your photos may be capturing a place on the brink of change!
-",
+    description:  "With its unique mix of architectural styles and an ever-changing cityscape, we’re confident that Shanghai is one of the most photogenic cities out there. Join a greeter who also loves photography and explore a local Shanghai neighborhood. Things change so fast around here, your photos may be capturing a place on the brink of change!",
     expectation_one: "Great views of the city",
     expectation_two: "Many people and a nice source of people watching",
     expectation_three: "Beautiful photos of Shanghai’s iconic skyline",
-    notice: "Discovery of historical European Architecture",
+
   },
 
 ]
-Experience.create!(Experience_attributes)
+Experience.create!(experience_attributes)
 
 
 
@@ -68,6 +67,8 @@ Experience.all.each do |experience|
 end
 
 puts "Finished!"
+
+
 
 
 
