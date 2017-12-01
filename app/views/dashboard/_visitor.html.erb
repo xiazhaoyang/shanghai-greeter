@@ -1,2 +1,27 @@
   <!-- ADD ITEM button -->
   <p>visitor</p>
+
+   <div class="row">
+      <% @my_bookings.each do |booking| %>
+      <div class="col col-xs-12 col-sm-6">
+        <div class="dashboard-card">
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= booking.experience.photos? ? (cl_image_path booking.experience.photos.first.path) : (image_path 'museum.jpg') %>');">
+            <div class="card-category"><%= booking.experience.name %></div>
+          </div>
+          <div class="edit-icons">
+            <% if @my_bookings.find_by(params[:greeter_id]).greeter_id? %>
+              <%= link_to root_path do %>
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <p><%= "Your booking has been accepted! Contact your greeter." %></p>
+              <% end %>
+            <% else %>
+              <p><%= "Your booking is pending" %></p>
+            <% end %>
+            <%= link_to "/bookings/#{booking.id}", method: :delete,
+          data: { confirm: "Are you sure you want to cancel your booking?" } do %>
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            <% end %>
+      <% end %>
+          </div>
+          <div class="your-bookings"></div>
+        </div>
