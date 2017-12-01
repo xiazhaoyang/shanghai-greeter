@@ -1,27 +1,35 @@
-  <!-- ADD ITEM button -->
-  <p>visitor</p>
-
-   <div class="row">
-      <% @my_bookings.each do |booking| %>
-      <div class="col col-xs-12 col-sm-6">
-        <div class="dashboard-card">
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= booking.experience.photos? ? (cl_image_path booking.experience.photos.first.path) : (image_path 'museum.jpg') %>');">
-            <div class="card-category"><%= booking.experience.name %></div>
-          </div>
-          <div class="edit-icons">
-            <% if @my_bookings.find_by(params[:greeter_id]).greeter_id? %>
-              <%= link_to root_path do %>
-                <i class="fa fa-envelope" aria-hidden="true"></i>
-                <p><%= "Your booking has been accepted! Contact your greeter." %></p>
-              <% end %>
-            <% else %>
-              <p><%= "Your booking is pending" %></p>
-            <% end %>
-            <%= link_to "/bookings/#{booking.id}", method: :delete,
-          data: { confirm: "Are you sure you want to cancel your booking?" } do %>
-              <i class="fa fa-trash" aria-hidden="true"></i>
-            <% end %>
-      <% end %>
-          </div>
-          <div class="your-bookings"></div>
+<div class="container cards">
+  <div class="row">
+    <% @my_bookings.each do |booking| %>
+    <div class="col col-xs-12 col-sm-4 col-sm-offset-3">
+      <div class="dashboard-card">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= booking.experience.photos? ? (cl_image_path booking.experience.photos.first.path) : (image_path 'museum.jpg') %>');">
+          <div class="card-experience"><%= booking.experience.name %></div>
         </div>
+        <div class="edit-icons">
+          <%= link_to "/bookings/#{booking.id}", method: :delete,
+        data: { confirm: "Are you sure you want to cancel your booking?" } do %>
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          <% end %>
+        </div>
+        <div class="booking-date">
+          <h3>Booking Date:</h3>
+          <p><%= booking.date %></p>
+        </div>
+      </div>
+      <div class="booking-status">
+        <% if @my_bookings.find_by(params[:greeter_id]).greeter_id? %>
+          <%= link_to root_path do %>
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+            <h3>Your booking has been accepted!</h3>
+            <p>Please see confirmation email for more info.</p>
+          <% end %>
+        <% else %>
+          <h3>Your booking is pending.</h3>
+          <p>You will receive an email confirmation within 3 days.</p>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
