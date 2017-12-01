@@ -12,6 +12,7 @@
             <% if @my_bookings.find_by(params[:greeter_id]).greeter_id? %>
               <%= link_to root_path do %>
                 <i class="fa fa-envelope" aria-hidden="true"></i>
+                <p><%= "Your booking has been accepted! Contact your greeter." %></p>
               <% end %>
             <% else %>
               <p><%= "Your booking is pending" %></p>
