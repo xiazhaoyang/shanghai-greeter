@@ -1,15 +1,23 @@
-<div class="row forms">
-  <div class="col-xs-4 col-xs-offset-4">
-    <h1>edit <%= @experience.name %>! experience</h1>
+<div class="page-background" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('<%= image_path "Shanghai-5.jpg" %>');">
+  <div class="login">
+    <div class="form-header">
+      <h2>Edit <%= @experience.name %> Experience</h2>
+    </div>
+    <div class="row form">
       <%= simple_form_for @experience do |e| %>
-        <%= e.input :name %>
-        <%= e.input :description %>
-        <%= e.input :expectation_one %>
-        <%= e.input :expectation_two %>
-        <%= e.input :expectation_three %>
-        <%= e.input :notice %>
-        <%= e.input :photos, as: :attachinary %>
-        <%= e.button :submit %>
+        <div class="form-inputs">
+          <%= e.input :name %>
+          <%= e.input :description %>
+          <%= e.input :expectation_one %>
+          <%= e.input :expectation_two %>
+          <%= e.input :expectation_three %>
+          <%= e.input :notice %>
+          <%= e.input :photos, as: :attachinary %>
+          <div class="form-actions">
+            <%= e.button :submit, class: "btn btn-primary" %>
+          </div>
+        </div>
       <% end %>
+    </div>
   </div>
 </div>
