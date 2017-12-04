@@ -85,9 +85,9 @@
 }
 
 .branded {
-  color: $red;
+  color: $red !important;
   &:hover{
-    color: $grey;
+    color: $grey !important;
   }
 }
 

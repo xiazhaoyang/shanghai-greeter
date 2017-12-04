@@ -23,3 +23,7 @@ $border-radius-large: 3px;
 $border-radius-small: 3px;
 
 // Override other variables below!
+.btn {
+  padding: 10px 35px !important;
+  border: none !important;
+}
