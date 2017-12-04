@@ -1,9 +1,9 @@
 <div class="footer">
   <div class="navigations">
     <p>About Us</p>
-    <p class="bold branded">Book An Experience</p>
-    <p>Become A Greeter</p>
-    <p>Sign In</p>
+    <p><%= link_to "Book An Experience", experiences_path, class: "bold branded" %></p>
+    <p><%= link_to "Become A Greeter", become_a_greeter_path %></p>
+    <%= link_to t(".sign_in", default: "Sign In"), new_user_session_path %>
   </div>
 
   <div class="global-greeters">
@@ -14,7 +14,7 @@
   </div>
 
   <div class="donate">
-    <%= link_to "DONATE", root_path, class: "btn btn-primary" %>
+    <%= link_to "Donate", root_path, class: "btn-ghost" %>
     <p class="bold">Donations keep us going!</p>
     <p>We are a non-profit and any donation is much appreciated.</p>
     <p>Your donation will be used in maintenance of</p>
