@@ -55,7 +55,13 @@ RailsAdmin.config do |config|
       field :greeter
       field :visitor
       field :date
-      field :aasm_state
+      field :aasm_state, :enum do
+
+        enum do
+          Booking.aasm.states.map(&:name)
+        end
+
+      end
     end
 
     list do
