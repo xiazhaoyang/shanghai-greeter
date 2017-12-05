@@ -20,4 +20,8 @@ class User < ApplicationRecord
   # validates :phone_number, presence: true
   # validates :language, presence: true, inclusion: { in: ["English", "Mandarin", "French", "Spanish", "Italian", "German", "Other"], allow_nil: false}
 
+
+  def name
+    email
+  end
 end
