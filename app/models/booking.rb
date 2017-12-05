@@ -20,4 +20,27 @@ class Booking < ApplicationRecord
   #     false
   #   end
   # end
+  include AASM
+
+  aasm do
+    state :pending, :initial => true
+    state :assigned, :confirmed, :declined, :cancelled
+
+    event :assign do
+      transitions :from => :pending, :to => :assigned
+    end
+
+    event :confirm do
+      transitions :from => :assigned, :to => :confirmed
+    end
+
+    event :decline do
+      transitions :from => [:assigned, :pending], :to => :declined
+    end
+
+    event :cancel do
+      transitions :from => [:confirmed], :to => :cancelled
+    end
+  end
+
 end
