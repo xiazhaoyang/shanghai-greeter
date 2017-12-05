@@ -35,11 +35,11 @@ class Booking < ApplicationRecord
     end
 
     event :decline do
-      transitions :from => [:assigned, :pending], :to => :declined
+      transitions :from => [:assigned], :to => :pending
     end
 
     event :cancel do
-      transitions :from => [:confirmed], :to => :cancelled
+      transitions :from => [:confirmed, :pending, :assigned], :to => :cancelled
     end
   end
 
