@@ -1,6 +1,9 @@
+
+
 puts 'Cleaning database...'
 Experience.delete_all
 Booking.delete_all
+User.delete_all
 
 puts 'Creating experiences...'
 experience_attributes = [
@@ -54,48 +57,43 @@ Experience.create!(experience_attributes)
 
 
 
-
-
-
 puts "Creating experience photos"
 a = 1
 db_dir = File.dirname(__FILE__)
 
 Experience.all.each do |experience|
+  puts "Creating experience photo"
   path = db_dir + "/images/image-#{a}.jpg"
   experience.photos = File.open(path)
   experience.save
   a += 1
 end
-
 
 
 
 puts 'Creating greeters'
-greeters_attribute = [
-  {
+8.times do
+  User.create(
     name: Faker::Name.name,
-    email: Faker::Internet.email,
+    password: "123456",
+    email: Faker::Internet.free_email,
     greeter: true
-  },
-]
-
-User.create!(greeters_attribute)
+    )
+end
 
 
 
 puts "Creating greeter photos"
-
-a = 7
+a = 1
 db_dir = File.dirname(__FILE__)
 
-User.all.each do |experience|
+User.all.each do |user|
+  puts "creating greeter photo"
   path = db_dir + "/images/image-#{a}.jpg"
-  experience.photos = File.open(path)
-  experience.save
+  user.photo_urls = [path]
+  user.save
   a += 1
 end
-
 
 
 puts "Finished!"
