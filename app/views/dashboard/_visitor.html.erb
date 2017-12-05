@@ -18,16 +18,7 @@
         </div>
       </div>
       <div class="booking-status">
-        <% if @my_bookings.find_by(params[:greeter_id]).greeter_id? %>
-          <%= link_to root_path do %>
-            <i class="fa fa-envelope" aria-hidden="true"></i>
-            <h3>Your booking has been accepted!</h3>
-            <p>Please see confirmation email for more info.</p>
-          <% end %>
-        <% else %>
-          <h3>Your booking is pending.</h3>
-          <p>You will receive an email confirmation within 3 days.</p>
-        <% end %>
+        <%= render partial: booking.aasm_state %>
       </div>
     </div>
     <% end %>
