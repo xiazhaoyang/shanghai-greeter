@@ -26,6 +26,7 @@ gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
 gem 'remotipart', github: 'mshibuya/remotipart'
 gem 'rails_admin', '>= 1.0.0.rc'
+gem 'faker'
 
 group :development, :test do
   gem 'pry-byebug'

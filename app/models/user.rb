@@ -13,7 +13,7 @@ class User < ApplicationRecord
   has_many :greeters, through: :visiting_bookings, foreign_key: :user_id 
 
   has_and_belongs_to_many :experiences, join_table: "users_experiences"
-
+  has_attachments :photos, maximum: 20
 
 
   # validates :name, presence: true
