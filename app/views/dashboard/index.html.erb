@@ -1,27 +1,37 @@
-<main class="tabs">
-
-  <input id="tab1" type="radio" name="tabs" checked>
-  <label for="tab1">My Experiences</label>
-
-  <% if policy(current_user).greeter? %>
-    <input id="tab2" type="radio" name="tabs">
-    <label for="tab2"><%= link_to "For Greeters", '/dashboard/greeter', remote: true %></label>
-  <% end %>
-
-  <input id="tab3" type="radio" name="tabs">
-  <label for="tab3"><%= link_to "Settings", '/dashboard/settings', remote: true %></label>
-
-  <!-- Created partials of the tabs to clean up the code in this file -->
-  <div id="tab">
-    <%= render "visitor"%>
+<div class="my-bookings">
+  <h1>Dashboard</h1>
+  <div class="row dashboard-background">
+    <% @my_bookings.each do |booking| %>
+    <div class="col col-xs-12 col-sm-4 col-sm-offset-4">
+      <div class="dashboard-card">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= booking.experience.photos? ? (cl_image_path booking.experience.photos.first.path) : (image_path 'museum.jpg') %>');">
+          <div class="card-experience"><%= booking.experience.name %></div>
+        </div>
+        <div class="edit-icons">
+          <%= link_to "/bookings/#{booking.id}", method: :delete,
+        data: { confirm: "Are you sure you want to cancel your booking?" } do %>
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          <% end %>
+        </div>
+        <div class="booking-date">
+          <h3>Booking Date:</h3>
+          <p><%= booking.date %></p>
+        </div>
+      </div>
+      <% if booking.assigned? %>
+        <div class="greeter-choices">
+          <%= link_to "Accept", booking_path(booking, aasm_state: :confirmed), method: :put, class: "btn btn-primary center-text" %>
+          <%= link_to "Decline", booking_path(booking, aasm_state: :declined), method: :put, class: "btn btn-primary center-text" %>
+        </div>
+      <% end %>
+      <% if booking.confirmed? %>
+        <h2>Confirmed booking!</h2>
+        <p>Please check your e-mail and contact visitor at earliest convenient time</p>
+      <% end %>
+      <% if booking.declined? %>
+        <h2>Booking declined</h2>
+      <% end %>
+    </div>
+    <% end %>
   </div>
-
-</main>
-
-<% content_for :js do %>
-
-  <script>
-    $('.tab1').click()
-  </script>
-
-<% end %>
+</div>
