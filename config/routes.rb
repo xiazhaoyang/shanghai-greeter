@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get "dashboard/settings", to: "dashboard#settings"
   get "dashboard", to: "dashboard#index"
   get "/become-a-greeter", to: "pages#greeter"
+  get "/about-us", to: "pages#about"
   mount Attachinary::Engine => "/attachinary"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
