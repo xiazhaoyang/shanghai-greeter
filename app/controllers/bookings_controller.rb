@@ -12,9 +12,9 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @experience = Experience.find(params[:experience_id])
-    @booking = Booking.new
-    @booking.visitor = current_user
+   date = params[:booking][:date]
+   @experience = Experience.find(params[:experience_id])
+   @booking = Booking.new(experience: @experience, date: date)
   end
 
   def create
@@ -49,7 +49,10 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:date, :aasm_state)
+    params.require(:booking).permit(:date, :aasm_state, :country, :address, :mobile, :attendees, :language)
   end
 
 end
+
+
+

@@ -27,7 +27,7 @@ gem 'coffee-rails'
 gem 'remotipart', github: 'mshibuya/remotipart'
 gem 'rails_admin', '>= 1.0.0.rc'
 gem 'faker'
-
+gem 'country_select'
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'

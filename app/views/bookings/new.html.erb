@@ -1,0 +1,23 @@
+<div class="row forms booking-form">
+  <div class="col-xs-4 col-xs-offset-4 ">
+    <h1>New booking</h1>
+      <%= simple_form_for [@experience, @booking] do |e| %>
+        <%= e.input :date, :as => :hidden %>
+        <%= e.input :country, label: 'Which Country are you from?' %>
+        <%= e.input :address, label: 'Address in Shanghai' %>
+        <%= e.input :mobile, label: 'Mobile Number' %>
+        <%= e.input :attendees, label: 'Number of people to attend the experience' %>
+        <%= e.input :language, label: 'Which language would you like your greeter to speak?' %>
+        <%= e.button :submit %>
+      <% end %>
+  </div>
+</div>
+
+
+
+<!-- - Country (label: Which Country are you from?)
+- Address (label: Address in Shanghai)
+- Mobile (label: Mobile Number)
+- Attendees (label: Number of people to attend the experience)
+- Language (label: Which language would you like your greeter to speak?)
+ -->
