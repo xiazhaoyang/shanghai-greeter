@@ -1,4 +1,15 @@
 class BookingsController < ApplicationController
+  def index
+    @visitor = current_user
+    @my_bookings = @visitor.greeting_bookings
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.save!
+    redirect_to dashboard_path
+  end
+
   def new
     @experience = Experience.find(params[:experience_id])
     @booking = Booking.new
@@ -38,7 +49,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:date)
+    params.require(:booking).permit(:date, :aasm_state)
   end
 
 end
