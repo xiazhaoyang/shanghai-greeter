@@ -1,0 +1,28 @@
+.about-section {
+  // padding: 40px 100px;
+  margin: 0 auto;
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.about-box {
+  background-color: $peach;
+  padding: 20px;
+  margin: 0 20px;
+  width: 40%;
+  text-align: center;
+  h2 {
+    font-size: 22px;
+    font-weight: bold;
+  }
+  h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: $red;
+  }
+}
+
+.know {
+  background-color: $peach;
+}

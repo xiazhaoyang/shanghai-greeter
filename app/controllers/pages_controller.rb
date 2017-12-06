@@ -7,4 +7,7 @@ class PagesController < ApplicationController
 
   def greeter
   end
+
+  def about
+  end
 end
