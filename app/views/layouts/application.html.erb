@@ -16,6 +16,13 @@
     <%= yield %>
     <%= render 'shared/footer' %>
     <%= javascript_include_tag 'application' %>
+    <%= javascript_tag do %>
+      $('document').ready(function() {
+      setTimeout(function() {
+      $('.alert').slideUp();
+      }, 2000);
+      });
+    <% end %>
     <%= cloudinary_js_config %>
     <%= yield :js %>
   </body>
