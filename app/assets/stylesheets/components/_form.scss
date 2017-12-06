@@ -50,3 +50,11 @@ textarea.form-control {
     list-style: none;
   }
 }
+
+textarea#booking_address {
+    height: 50px;
+}
+
+select#booking_attendees {
+    width: 65px;
+}
