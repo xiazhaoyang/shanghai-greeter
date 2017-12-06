@@ -2,7 +2,7 @@
   <div class="col-xs-4 col-xs-offset-4">
     <h1>Add A New Booking</h1>
       <%= simple_form_for [@experience, @booking] do |e| %>
-
+        <%= e.input :date, as: :text, value: @date %>
         <%= e.input :country, label: 'Which Country are you from?' %>
         <%= e.input :address, label: 'Address in Shanghai' %>
         <%= e.input :mobile, label: 'Mobile Number' %>
