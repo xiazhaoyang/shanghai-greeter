@@ -1,7 +1,12 @@
 class DashboardController < ApplicationController
   def index
-    @visitor = current_user
-    @my_bookings = @visitor.visiting_bookings
+    @greeter = current_user
+    @my_bookings = @greeter.greeting_bookings
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.save
   end
 
   def greeter
@@ -17,3 +22,4 @@ class DashboardController < ApplicationController
   end
 
 end
+

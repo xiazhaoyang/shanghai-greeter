@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :bookings, only: [ :new, :create ]
   end
 
-  resources :bookings, only: [ :edit, :update, :destroy, :new_review ]
+  resources :bookings, only: [ :index, :edit, :update, :destroy, :new_review ]
 
   get "dashboard/visitor", to: "dashboard#visitor"
   get "dashboard/greeter", to: "dashboard#greeter"

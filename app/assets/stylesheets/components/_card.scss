@@ -63,6 +63,7 @@
 .booking-date {
   text-align: center;
   line-height: 0.5em;
+  margin-top: 30px;
   h3 {
     font-weight: bold;
     font-size: 14px;
@@ -72,4 +73,8 @@
   p {
     font-size: 12px;
   }
+}
+
+.greeter-choices {
+  text-align: center;
 }

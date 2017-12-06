@@ -1,6 +1,9 @@
 <div class="my-bookings">
   <h1>Dashboard</h1>
   <div class="row dashboard-background">
+    <% if @my_bookings[0] == nil %>
+      <p class="center-text">----- You currently have no bookings -----</p>
+    <% end %>
     <% @my_bookings.each do |booking| %>
     <div class="col col-xs-12 col-sm-4 col-sm-offset-4">
       <div class="dashboard-card">
@@ -8,9 +11,11 @@
           <div class="card-experience"><%= booking.experience.name %></div>
         </div>
         <div class="edit-icons">
-          <%= link_to "/bookings/#{booking.id}", method: :delete,
-        data: { confirm: "Are you sure you want to cancel your booking?" } do %>
-            <i class="fa fa-trash" aria-hidden="true"></i>
+          <% if booking.confirmed? %>
+            <%= link_to booking_path(booking, booking: {aasm_state: :pending}), method: :put,
+          data: { confirm: "Are you sure you want to cancel your booking?" } do %>
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            <% end %>
           <% end %>
         </div>
         <div class="booking-date">
@@ -20,8 +25,8 @@
       </div>
       <% if booking.assigned? %>
         <div class="greeter-choices">
-          <%= link_to "Accept", booking_path(booking, aasm_state: :confirmed), method: :put, class: "btn btn-primary center-text" %>
-          <%= link_to "Decline", booking_path(booking, aasm_state: :declined), method: :put, class: "btn btn-primary center-text" %>
+          <%= link_to "Accept", booking_path(booking, booking: {aasm_state: :confirmed}), method: :put, class: "btn btn-primary center-text" %>
+          <%= link_to "Decline", booking_path(booking, booking: {aasm_state: :declined}), method: :put, class: "btn btn-primary center-text" %>
         </div>
       <% end %>
       <% if booking.confirmed? %>
@@ -30,6 +35,9 @@
       <% end %>
       <% if booking.declined? %>
         <h2>Booking declined</h2>
+      <% end %>
+      <% if booking.pending? %>
+        <h2>Booking cancelled</h2>
       <% end %>
     </div>
     <% end %>
