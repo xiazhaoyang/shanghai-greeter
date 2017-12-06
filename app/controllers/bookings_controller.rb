@@ -1,12 +1,13 @@
 class BookingsController < ApplicationController
   def index
     @visitor = current_user
-    @my_bookings = @visitor.greeting_bookings
+    @my_bookings = @visitor.visiting_bookings
   end
 
   def update
     @booking = Booking.find(params[:id])
-    @booking.save!
+    @booking.update(booking_params)
+    @booking.save
     redirect_to dashboard_path
   end
 
@@ -22,9 +23,8 @@ class BookingsController < ApplicationController
     @booking.experience = @experience
     @booking.visitor = current_user
     if @booking.date >= (Date.today + 5)
-      if @booking.save
-        redirect_to dashboard_path, notice: "Booking confirmed!"
-      end
+      @booking.save
+        redirect_to bookings_path, notice: "Booking confirmed!"
     else
       redirect_to experience_path(@experience), alert: "I am sorry, these dates are unavailable or are not valid."
     end
