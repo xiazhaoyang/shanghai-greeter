@@ -32,7 +32,7 @@
   </div>
   <div class="booking">
     <h3>BOOK YOUR EXPERIENCE!</h3>
-    <%= simple_form_for [@experience, @booking] do |i| %>
+    <%= simple_form_for @booking, url: new_experience_booking_path(@experience), method: :get do |i| %>
           <%= i.input :date, as:'string', input_html: { class: 'calendar' }%>
           <%= i.button :submit, class: "btn btn-primary" %>
     <% end %>
