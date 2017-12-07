@@ -42,14 +42,16 @@ RailsAdmin.config do |config|
     # history_show
   end
 
-  config.model 'Booking' do
+  config.model 'User' do
     list do
-      field :greeter, :enum do
-        enum do
-          User.all.map { |c| [c.name.to_s] }
-        end
-      end
+      field :name
+      field :email
+      field :sign_in_count
     end
+
+  end
+
+  config.model 'Booking' do
     edit do
       # field :greeter, :enum do
       #   enum do
