@@ -42,6 +42,15 @@ RailsAdmin.config do |config|
     # history_show
   end
 
+  config.model 'User' do
+    list do
+      field :name
+      field :email
+      field :sign_in_count
+    end
+
+  end
+
   config.model 'Booking' do
     edit do
       # field :greeter, :enum do
@@ -56,11 +65,13 @@ RailsAdmin.config do |config|
       field :visitor
       field :date
       field :aasm_state, :enum do
-
         enum do
           Booking.aasm.states.map(&:name)
         end
 
+      end
+      field :aasm_state do
+        label "Status"
       end
     end
 
@@ -68,8 +79,9 @@ RailsAdmin.config do |config|
       field :greeter
       field :visitor
       field :date
-      field :aasm_state
-
+      field :aasm_state do
+        label "Status"
+      end
     end
   end
 end
