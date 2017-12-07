@@ -53,4 +53,15 @@ body {
 .wrapper {
   overflow: hidden;
   height: 560px;
+  border-bottom: solid 4px $white;
+  border-top: solid 2px $white;
+  position: relative;
+}
+
+.mosaic{
+  border: solid 2px $white;
+  transition: filter 0.5s ease;
+  &:hover {
+    filter: grayscale(100%);
+  }
 }
