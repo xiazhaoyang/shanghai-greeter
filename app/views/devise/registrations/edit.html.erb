@@ -1,27 +1,43 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="page-background" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('<%= image_path "Shanghai-5.jpg" %>');">
+  <div class="login">
+    <div class="form-header">
+      <h2>Account Settings</h2>
+    </div>
+    <div class="form">
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= f.error_notification %>
+        <div class="form-inputs">
+          <%= f.input :email, required: true, autofocus: true %>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+          <% end %>
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
+          <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
+          <%= f.input :password_confirmation, required: false %>
+          <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
+          <% if policy(current_user).greeter? %>
+            <div class="form-greeter">
+              <h3>Greeter Settings</h3>
+            </div>
+            <%= f.input :phone_number, required: false %>
+            <%= f.input :wechat_id, required: false %>
+            <%= f.input :language, label: 'Which languages are you comfortable greeting in?', required: false %>
+            <%= f.input :interests_list, label: 'Which experiences would you like to greet?', collection: Experience.all, value_method: :name, as: :check_boxes %>
+            <%= f.input :bio, label: 'Bio', as: :text, placeholder: "Write a little about yourself and why you are a greeter", required: false %>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
+          <% end %>
+        </div>
 
-    <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
-    <%= f.input :password_confirmation, required: false %>
-    <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
+        <div class="form-actions">
+          <%= f.button :submit, "Update", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+      <div class="cancel-account">
+        <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+      </div>
+      <%= link_to "Back", :back %>
+    </div>
   </div>
+</div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
