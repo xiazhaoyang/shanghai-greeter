@@ -5,6 +5,7 @@
     </div>
     <div class="form">
       <%= simple_form_for [@experience, @booking] do |e| %>
+      <%= e.error_notification %>
         <div class="form-inputs">
           <%= e.input :date, :as => :hidden %>
           <%= e.input :country, label: 'Which Country are you from?', required: true %>
