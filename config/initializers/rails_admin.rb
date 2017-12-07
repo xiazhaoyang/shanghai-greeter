@@ -43,6 +43,13 @@ RailsAdmin.config do |config|
   end
 
   config.model 'Booking' do
+    list do
+      field :greeter, :enum do
+        enum do
+          User.all.map { |c| [c.name.to_s] }
+        end
+      end
+    end
     edit do
       # field :greeter, :enum do
       #   enum do
@@ -56,11 +63,13 @@ RailsAdmin.config do |config|
       field :visitor
       field :date
       field :aasm_state, :enum do
-
         enum do
           Booking.aasm.states.map(&:name)
         end
 
+      end
+      field :aasm_state do
+        label "Status"
       end
     end
 
@@ -68,8 +77,9 @@ RailsAdmin.config do |config|
       field :greeter
       field :visitor
       field :date
-      field :aasm_state
-
+      field :aasm_state do
+        label "Status"
+      end
     end
   end
 end
