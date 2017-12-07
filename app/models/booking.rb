@@ -24,10 +24,11 @@ class Booking < ApplicationRecord
 
   aasm do
     state :pending, :initial => true
-    state :assigned, :confirmed, :declined, :cancelled
+    state :assigned, :confirmed, :declined, :cancelled, :completed
+
 
     event :assign do
-      transitions :from => :pending, :to => :assigned
+      transitions :from => :pending, :to => :assigned, :after => :assigned_email
     end
 
     event :confirm do
@@ -41,6 +42,59 @@ class Booking < ApplicationRecord
     event :cancel do
       transitions :from => [:confirmed, :pending, :assigned], :to => :cancelled
     end
+
+    event :complete do
+      transitions :from => :confirmed, :to => :completed
+    end
   end
 
+  def assigned_email
+    tracker = Mixpanel::Tracker.new(ENV["MIX_PANEL"])
+    tracker.track(self.visitor_id, 'booking was assigned', {
+      '$email' => User.find(self.visitor_id).email
+    })
+  end
+
+  def confirmed_email
+    tracker = Mixpanel::Tracker.new(ENV["MIX_PANEL"])
+    tracker.track(self.visitor_id, 'booking was confirmed', {
+      '$email' => User.find(self.visitor_id).email
+    })
+  end
+
+  def decline_email
+    tracker = Mixpanel::Tracker.new(ENV["MIX_PANEL"])
+    tracker.track(self.visitor_id, 'booking was declined', {
+      '$email' => User.find(self.visitor_id).email
+    })
+  end
+
+  def cancel_email
+    tracker = Mixpanel::Tracker.new(ENV["MIX_PANEL"])
+    tracker.track(self.visitor_id, 'booking was cancelled', {
+      '$email' => User.find(self.visitor_id).email
+    })
+  end
+
+
+
+
+
+  # def assigned_email
+  #   tracker = Mixpanel::Tracker.new(ENV["MIX_PANEL"])
+  #   tracker.people.set(id, {
+  #     '$email' => email,
+  #     'is_greeter' => greeter,
+  #     'name' => name
+  #   })
+  # end
+
+
+
 end
+
+# 1.admin assign to a greeter ( status:assigned greeter)
+# 2.greeter confirm the request (status:confirmed visitor, admin, greeter.)
+# 3.greeter decline the request (status:pending admin)
+# 4.visitor decline the request (status:canceled admin)
+# 5.tour finished (status: complete visitor)

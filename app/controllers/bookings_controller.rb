@@ -18,12 +18,6 @@ class BookingsController < ApplicationController
   end
 
   def create
-    tracker = Mixpanel::Tracker.new(MIX_PANEL)
-    tracker.track(user_id, 'welcome', {
-    'Old Plan' => 'Business',
-    'New Plan' => 'Premium'
-})
-
     @experience = Experience.find(params[:experience_id])
     @booking = Booking.new(booking_params)
     @booking.experience = @experience
