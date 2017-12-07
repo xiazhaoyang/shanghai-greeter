@@ -3,11 +3,14 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-
   after_create :send_to_mixpanel
 
   # acts_as_taggable
   # acts_as_taggable_on :experiences
+
+  acts_as_taggable
+  acts_as_taggable_on :interests
+
 
   has_many :greeting_bookings, class_name: "Booking", foreign_key: :greeter_id
   has_many :visiting_bookings, class_name: "Booking", foreign_key: :visitor_id

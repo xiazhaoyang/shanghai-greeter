@@ -50,8 +50,8 @@ class Booking < ApplicationRecord
 
   def assigned_email
     tracker = Mixpanel::Tracker.new(ENV["MIX_PANEL"])
-    tracker.track(self.visitor_id, 'booking was assigned', {
-      '$email' => User.find(self.visitor_id).email
+    tracker.track(self.greeter_id, 'booking was assigned', {
+      '$email' => User.find(self.greeter_id).email
     })
   end
 
@@ -59,20 +59,22 @@ class Booking < ApplicationRecord
     tracker = Mixpanel::Tracker.new(ENV["MIX_PANEL"])
     tracker.track(self.visitor_id, 'booking was confirmed', {
       '$email' => User.find(self.visitor_id).email
+      '$email' => User.find(self.greeter_id).email
+      '$email' => User.find_by(admin: true).email
     })
   end
 
   def decline_email
     tracker = Mixpanel::Tracker.new(ENV["MIX_PANEL"])
     tracker.track(self.visitor_id, 'booking was declined', {
-      '$email' => User.find(self.visitor_id).email
+      '$email' => User.find_by(admin: true).email
     })
   end
 
   def cancel_email
     tracker = Mixpanel::Tracker.new(ENV["MIX_PANEL"])
     tracker.track(self.visitor_id, 'booking was cancelled', {
-      '$email' => User.find(self.visitor_id).email
+      '$email' => User.find_by(admin: true).email
     })
   end
 
