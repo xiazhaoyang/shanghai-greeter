@@ -4,9 +4,15 @@
     <p><%= link_to "About Us", about_us_path %></p>
     <p><%= link_to "Become A Greeter", become_a_greeter_path %></p>
     <div class="social-icons">
-      <i class="fa fa-twitter"></i>
-      <i class="fa fa-facebook-square"></i>
-      <i class="fa fa-youtube-play"></i>
+      <%= link_to 'https://www.facebook.com/ShanghaiGreeters' do %>
+        <i class="fa fa-facebook-square"></i>
+      <% end %>
+      <%= link_to 'https://twitter.com/shanghaigreeter' do %>
+        <i class="fa fa-twitter"></i>
+      <% end %>
+      <%= link_to 'https://www.youtube.com/channel/UCt0dURZ8ANaJpiQ3I2A_pEw/feed?view_as=public' do %>
+        <i class="fa fa-youtube-play"></i>
+      <% end %>
     </div>
   </div>
 
