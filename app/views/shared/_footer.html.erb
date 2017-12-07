@@ -1,20 +1,24 @@
 <div class="footer">
   <div class="navigations">
-    <p><%= link_to "About Us", about_us_path %></p>
     <p><%= link_to "Book An Experience", experiences_path, class: "bold branded" %></p>
+    <p><%= link_to "About Us", about_us_path %></p>
     <p><%= link_to "Become A Greeter", become_a_greeter_path %></p>
-    <%= link_to t(".sign_in", default: "Sign In"), new_user_session_path %>
+    <div class="social-icons">
+      <i class="fa fa-twitter"></i>
+      <i class="fa fa-facebook-square"></i>
+      <i class="fa fa-youtube-play"></i>
+    </div>
   </div>
 
   <div class="global-greeters">
-    <p class="bold">Global Greeter Network</p>
+    <p class="italic">Global Greeter Network</p>
     <p><%= link_to "New York", "https://bigapplegreeter.org/" %></p>
     <p><%= link_to "Tokyo", "https://tokyogreeter.jimdo.com/" %></p>
     <p><%= link_to "Paris", "https://greeters.paris/" %></p>
   </div>
 
   <div class="donate">
-    <%= link_to "Donate", root_path, class: "btn-ghost" %>
+    <%= link_to "Donate", 'https://www.paypal.com/us/cgi-bin/webscr?cmd=_flow&SESSION=qvVcyaS1ArquFuRmvu3aKnpBAO_gKWFqWf7OVOEpm0nxbae9iz0jk79gwKq&dispatch=5885d80a13c0db1f8e263663d3faee8dc3f308debf7330dd8d0b0a9f21afd7d3&rapidsState=Donation__DonationFlow___StateDonationLogin&rapidsStateSignature=4b9931a10b50917876870b81af4a88cf6a09c212', target: "blank", class: "btn-ghost" %>
     <p class="bold">Donations keep us going!</p>
     <p>We are a non-profit and any donation is much appreciated.</p>
     <p>Your donation will be used in maintenance of</p>
