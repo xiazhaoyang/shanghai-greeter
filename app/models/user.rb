@@ -21,30 +21,6 @@ class User < ApplicationRecord
   has_attachments :photos, maximum: 20
 
 
-  # validates :name, presence: true
-  # validates :phone_number, presence: true
-  # validates :language, presence: true, inclusion: { in: ["English", "Mandarin", "French", "Spanish", "Italian", "German", "Other"], allow_nil: false}
-
-  # include AASM
-
-  # aasm do
-  #   state :pending, :initial => true
-  #   state :assigned, :confirmed, :declined, :cancelled, :completed,
-
-  #   event :assign do
-  #     transitions :from => :pending, :to => :assigned, callback: :assigned_email
-  #   end
-
-
-
-  #   def assigned_email
-  #     tracker = Mixpanel::Tracker.new(ENV["MIX_PANEL"])
-  #     tracker.alias(new_internal_id)
-
-  #   end
-
-  # end
-
   def name
     email
   end
