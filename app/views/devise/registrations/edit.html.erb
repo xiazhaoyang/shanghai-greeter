@@ -23,7 +23,7 @@
             <%= f.input :phone_number, required: false %>
             <%= f.input :wechat_id, required: false %>
             <%= f.input :language, label: 'Which languages are you comfortable greeting in?', required: false %>
-            <%= f.input :interest_list, label: 'Which experiences would you like to greet?', collection: Experience.all, value_method: :name, as: :check_boxes %>
+            <%= f.input :interest_list, label: 'Which experiences would you like to greet?', collection: Experience.all, value_method: :name, as: :check_boxes, input_html: { name: 'user[interest_array][]' }  %>
             <%= f.input :bio, label: 'Bio', as: :text, placeholder: "Write a little about yourself and why you are a greeter", required: false %>
 
           <% end %>

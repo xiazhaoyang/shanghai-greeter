@@ -10,23 +10,29 @@
 <!-- Value Prop -->
 <div class="container value-prop">
   <div class="row">
-    <div class="value col col-sm-4">
-      <%= image_tag "flag.png" %>
-      <p class="bold">We are your local friend</p>
-      <p>Ready to show you our</p>
-      <p>favorite spots</p>
+    <div class="col-sm-4">
+      <div class="value">
+        <%= image_tag "flag.png" %>
+        <p class="bold">We are your local friend</p>
+        <p>Ready to show you our</p>
+        <p>favorite spots</p>
+      </div>
     </div>
-    <div class="value col col-sm-4">
-      <%= image_tag "money.png" %>
-      <p class="bold">It's free!!</p>
-      <p>We are all volunteers</p>
-      <p>who want to share a passion</p>
+    <div class="col-sm-4">
+      <div class="value">
+        <%= image_tag "money.png" %>
+        <p class="bold">It's free!!</p>
+        <p>We are all volunteers</p>
+        <p>who want to share a passion</p>
+      </div>
     </div>
-    <div class="value col col-sm-4">
-      <%= image_tag "heart.png" %>
-      <p class="bold">Book by interest</p>
-      <p>We tailor your experience</p>
-      <p>to what you like</p>
+    <div class="col-sm-4">
+      <div class="value">
+        <%= image_tag "heart.png" %>
+        <p class="bold">Book by interest</p>
+        <p>We tailor your experience</p>
+        <p>to what you like</p>
+      </div>
     </div>
   </div>
 </div>
@@ -52,9 +58,9 @@
 </div>
 
 <!-- Testimonials -->
-<div class="row peach">
-  <h2>WHAT GREETERS & VISITORS HAVE TO SAY</h2>
-  <div class="testimonials">
+<div class="container-fluid">
+  <div class="row peach">
+    <h2>WHAT GREETERS & VISITORS HAVE TO SAY</h2>
     <div class="col col-xs-12 col-sm-4">
       <div class="testimonial">
         <%= image_tag "testimonial-1.png", class: "testimonial-avatar" %>
@@ -80,4 +86,25 @@
       </div>
     </div>
   </div>
+</div>
+
+<!-- MOSAIC -->
+<div class="wrapper">
+  <section id="photos">
+    <div class="mosaic", data-toggle="tooltip", title="Hi, I'm Bobo!"><%= image_tag "Bobo.jpg" %></div>
+    <div class="mosaic"><%= image_tag "Chloe.jpg" %></div>
+    <div class="mosaic"><%= image_tag "Evan.jpg" %></div>
+    <div class="mosaic"><%= image_tag "Coco.jpg" %></div>
+    <div class="mosaic"><%= image_tag "Yu.jpg" %></div>
+    <div class="mosaic"><%= image_tag "Felix.jpg" %></div>
+    <div class="mosaic"><%= image_tag "Hillary.jpg" %></div>
+    <div class="mosaic"><%= image_tag "Jenny.jpg" %></div>
+    <div class="mosaic"><%= image_tag "Maggie.jpg" %></div>
+    <div class="mosaic"><%= image_tag "Max.jpg" %></div>
+    <div class="mosaic"><%= image_tag "Sarah.jpg" %></div>
+    <div class="mosaic"><%= image_tag "Shelly.jpg" %></div>
+    <div class="mosaic"><%= image_tag "Yoyo.jpg" %></div>
+    <div class="mosaic"><%= image_tag "Jimmy.jpg" %></div>
+    <div class="mosaic"><%= image_tag "TingTing.jpg" %></div>
+  </section>
 </div>
