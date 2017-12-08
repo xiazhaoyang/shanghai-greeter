@@ -24,23 +24,86 @@ class Booking < ApplicationRecord
 
   aasm do
     state :pending, :initial => true
-    state :assigned, :confirmed, :declined, :cancelled
+    state :assigned, :confirmed, :declined, :cancelled, :completed
+
 
     event :assign do
-      transitions :from => :pending, :to => :assigned
+      transitions :from => :pending, :to => :assigned, :after => :assigned_email
     end
 
     event :confirm do
-      transitions :from => :assigned, :to => :confirmed
+      transitions :from => :assigned, :to => :confirmed, :after => :confirmed_email
     end
 
     event :decline do
-      transitions :from => [:assigned], :to => :pending
+      transitions :from => [:assigned], :to => :pending, :after => :decline_email
     end
 
     event :cancel do
-      transitions :from => [:confirmed, :pending, :assigned], :to => :cancelled
+      transitions :from => [:confirmed, :pending, :assigned], :to => :cancelled, :after => :cancel_email
+    end
+
+    event :complete do
+      transitions :from => :confirmed, :to => :completed, :after => :complete_email
     end
   end
 
+  def assigned_email
+    tracker = Mixpanel::Tracker.new(ENV["MIX_PANEL"])
+    tracker.track(self.greeter_id, 'assigned email', {
+      '$email' => User.find(self.greeter_id).email
+    })
+  end
+
+  def confirmed_email
+    tracker = Mixpanel::Tracker.new(ENV["MIX_PANEL"])
+    tracker.track(self.visitor_id, 'confirmed_email', {
+      '$email' => User.find(self.visitor_id).email,
+      '$email' => User.find(self.greeter_id).email,
+      '$email' => User.find_by(admin: true).email
+    })
+  end
+
+  def decline_email
+    tracker = Mixpanel::Tracker.new(ENV["MIX_PANEL"])
+    tracker.track(self.visitor_id, 'decline_email', {
+      '$email' => User.find_by(admin: true).email
+    })
+  end
+
+  def cancel_email
+    tracker = Mixpanel::Tracker.new(ENV["MIX_PANEL"])
+    tracker.track(self.visitor_id, 'cancel_email', {
+      '$email' => User.find_by(admin: true).email
+    })
+  end
+
+  def complete_email
+    tracker = Mixpanel::Tracker.new(ENV["MIX_PANEL"])
+    tracker.track(self.greeter_id, 'complete_email', {
+      '$email' => User.find(self.visitor_id).email
+    })
+  end
+
+
+
+
+
+  # def assigned_email
+  #   tracker = Mixpanel::Tracker.new(ENV["MIX_PANEL"])
+  #   tracker.people.set(id, {
+  #     '$email' => email,
+  #     'is_greeter' => greeter,
+  #     'name' => name
+  #   })
+  # end
+
+
+
 end
+
+# 1.admin assign to a greeter ( status:assigned greeter)
+# 2.greeter confirm the request (status:confirmed visitor, admin, greeter.)
+# 3.greeter decline the request (status:pending admin)
+# 4.visitor decline the request (status:canceled admin)
+# 5.tour finished (status: complete visitor)
