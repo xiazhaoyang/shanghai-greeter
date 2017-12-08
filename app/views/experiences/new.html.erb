@@ -1,9 +1,16 @@
+
+<% @title="New Experience" %>
+<div class="row forms">
+  <div class="col-xs-4 col-xs-offset-4">
+    <h1>Add A New Experience</h1>
+
 <div class="page-background" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('<%= image_path "Shanghai-5.jpg" %>');">
   <div class="login">
     <div class="form-header">
       <h2>Add A New Experience</h2>
     </div>
     <div class="form">
+
       <%= simple_form_for @experience do |e| %>
       <%= e.error_notification %>
         <div class="form-inputs">
