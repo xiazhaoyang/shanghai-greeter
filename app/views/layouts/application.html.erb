@@ -6,16 +6,18 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Merienda+One|Nunito:300,700" rel="stylesheet">
     <%= favicon_link_tag %>
+    <meta charset="UTF-8">
     <title><%= @title %></title>
     <meta name="description" content="Discover Shanghai The Local Way">
     <meta name="keywords" content="shanghai, greeters, tours, food, photography, travel, china, visit">
+    <meta property='og:title' content='Shanghai Greeters'/>
+    <meta property='og:image' content='http://www.starwoodhotels.com/pub/media/3360/who3360ex.209686_md.jpg'/>
+    <meta property="og:type" content="website" />
+    <meta property='og:description' content='Discover Shanghai The Local Way'/>
+    <meta property='og:url' content='www.shgreeters.com' />
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
-    <meta property='og:title' content='Shanghai Greeters'/>
-    <meta property='og:image' content='http://www.starwoodhotels.com/pub/media/3360/who3360ex.209686_md.jpg'/>
-    <meta property='og:description' content='Discover Shanghai The Local Way'/>
-    <meta property='og:url' content='www.shgreeters.com' />
   </head>
   <body>
     <%= render 'shared/navbar' %>
