@@ -1,0 +1,5 @@
+meta_product_name: "Shanghai Greeters"
+meta_title: "Shanghai Greeters - Discover Shanghai The Local Way"
+meta_description: "Part of a global network, Shanghai Greeters is a non-profit that matches visitors with local greeters in Shanghai to show them the city the local way."
+meta_image: "Shanghai-5.jpg"                       # should exist in `app/assets/images/`
+twitter_account: "@shanghaigreeter"
