@@ -26,8 +26,8 @@
 
 .know {
   background-color: $peach;
-  padding: 50px 12%;
-  margin: 30px 0;
+  width: 51.5%;
+  padding: 30px 40px;
   h1 {
     text-align: center;
     font-size: 28px;
@@ -37,4 +37,16 @@
   li {
     margin: 1em;
   }
+}
+
+.know-photo {
+  width: 50%;
+  background-position: center;
+}
+
+.know-wrapper {
+  display: flex;
+  height: 600px;
+  overflow: hidden;
+  margin: 30px 0;
 }
