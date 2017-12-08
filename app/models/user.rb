@@ -3,9 +3,14 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  after_create :send_to_mixpanel
+
+  # acts_as_taggable
+  # acts_as_taggable_on :experiences
 
   acts_as_taggable
   acts_as_taggable_on :interests
+
 
   has_many :greeting_bookings, class_name: "Booking", foreign_key: :greeter_id
   has_many :visiting_bookings, class_name: "Booking", foreign_key: :visitor_id
@@ -16,11 +21,21 @@ class User < ApplicationRecord
   has_attachments :photos, maximum: 20
 
 
+
   # validates :name, presence: true
   # validates :phone_number, presence: true
   # validates :language, presence: true, inclusion: { in: ["English", "Mandarin", "French", "Spanish", "Italian", "German", "Other"], allow_nil: false}
 
   def name
     email
+  end
+
+  def send_to_mixpanel
+    tracker = Mixpanel::Tracker.new(ENV["MIX_PANEL"])
+    tracker.people.set(id, {
+      '$email' => email,
+      'is_greeter' => greeter,
+      'name' => name
+    })
   end
 end
