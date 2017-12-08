@@ -29,6 +29,8 @@ gem 'rails_admin', '>= 1.0.0.rc'
 gem 'rails_admin_tag_list'
 gem 'faker'
 gem 'country_select'
+gem 'mixpanel-ruby'
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
