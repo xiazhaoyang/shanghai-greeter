@@ -26,18 +26,25 @@
       </div>
       <% if booking.assigned? %>
         <div class="greeter-choices">
-          <%= link_to "Accept", booking_path(booking, booking: {aasm_state: :confirmed}), method: :put, class: "btn btn-primary center-text" %>
-          <%= link_to "Decline", booking_path(booking, booking: {aasm_state: :declined}), method: :put, class: "btn btn-primary center-text" %>
+          <%= link_to booking_path(booking, booking: {aasm_state: :confirmed}), method: :put, class: "btn btn-primary center-text" do %>
+            <i class="fa fa-check" aria-hidden="true"></i> Accept
+          <% end %>
+          <%= link_to booking_path(booking, booking: {aasm_state: :declined}), method: :put, class: "btn btn-primary decline center-text" do%>
+            <i class="fa fa-times" aria-hidden="true"></i> Decline
+          <% end %>
         </div>
       <% end %>
       <% if booking.confirmed? %>
+        <h2 class="state-icon"><i class="fa fa-check-circle-o" aria-hidden="true"></i></h2>
         <h2>Confirmed booking!</h2>
         <p>Please check your e-mail and contact visitor at earliest convenient time</p>
       <% end %>
       <% if booking.declined? %>
+      <h2 class="state-icon"><i class="fa fa-ban" aria-hidden="true"></i></h2>
         <h2>Booking declined</h2>
       <% end %>
       <% if booking.pending? %>
+        <h2 class="state-icon"><i class="fa fa-ban" aria-hidden="true"></i></h2>
         <h2>Booking cancelled</h2>
       <% end %>
     </div>
