@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'https://gems.ruby-china.com'
 ruby '2.3.5'
 
 gem 'devise'
